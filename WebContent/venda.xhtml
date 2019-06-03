@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet"
+	href="${facesContext.externalContext.request.contextPath}/resourses/menu.css"
+	type="text/css" />
+<link rel="stylesheet" type="text/css"
+	href="#{facesContext.externalContext.requestContextPath}/Bootstrap/css/estilo.css"
+	media="screen" />
+<link rel="stylesheet" type="text/css"
+	href="#{facesContext.externalContext.requestContextPath}/Bootstrap/css/bootstrap.min.css"
+	media="screen" />
+<link rel="stylesheet" type="text/css"
+	href="#{facesContext.externalContext.requestContextPath}/Bootstrap/css/bootstrap-theme.min.css"
+	media="screen" />
+<link rel="stylesheet" />
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>CAR CASH</h1>
+	<h2 style="text-align: center">Realizar Venda</h2>
+	<div class="topnav">
+		<a href="telaPrincipal.xhtml?faces-redirect=true">Home</a> <a
+			href="cadastroCliente.xhtml?faces-redirect=true">Cliente</a> <a
+			href="cadatroVeiculo.xhtml?faces-redirect=true">Veiculo</a> <a
+			href="venda.xhtml?faces-redirect=true">Venda</a> <a
+			href="listaCliente.xhtml?faces-redirect=true">Lista de Cliente</a> <a
+			href="listaVeiculo.xhtml?faces-redirect=true">Lista de Veiculos</a> 
+
+	</div>
+	<hr />
+	<div class="row">
+		<div class="control-label col-sm-6">
+
+			<h:form id="forme">
+				<div class="col-md-6">
+					<div class="control">
+						<h:outputLabel for="nomeCliente">Selecione o cliente:</h:outputLabel>
+						<h:selectOneMenu style ="width: 400px;" value="#{vendaBean.clienteId}">
+							<f:selectItems  value="#{Clientebean.userList()}" var="cl"
+								itemLabel="#{cl.nome}" itemValue="#{cl.id}" required="true"/>
+						</h:selectOneMenu>
+						<h:message for="veiculo" style="color:red" />
+					</div>
+					<div class="control">
+						<h:outputLabel>Selecione o veiculo:</h:outputLabel>
+						<h:selectOneMenu style ="width: 300px;"  value="#{vendaBean.veiculoId}" >
+							<f:selectItems value="#{Veiculobean.userList()}" var="vr"
+								itemLabel="#{vr.placa} #{vr.marca}" itemValue="#{vr.id}" required="true"/>
+						</h:selectOneMenu>
+						<h:message for="veiculo" style="color:red" />
+
+					</div>
+					<div>
+						<h:outputLabel for="data">Data da venda :</h:outputLabel>
+						<div>
+							<h:inputText id="data" value="#{vendaBean.data}" required="true">
+							</h:inputText>
+							<h:message for="data" style="color:red" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h:commandButton value="Salvar" action="#{vendaBean.salvar()}"
+								class="btn btn-primary" style="width: 80px;"></h:commandButton>
+						</div>
+					</div>
+
+				</div>
+			</h:form>
+		</div>
+	</div>
+</body>
+</html>

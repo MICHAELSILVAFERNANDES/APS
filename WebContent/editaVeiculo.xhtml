@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Edit Your Record</title>
+	<link rel="stylesheet"
+		href="${facesContext.externalContext.request.contextPath}/resourses/menu.css"
+		type="text/css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{facesContext.externalContext.requestContextPath}/Bootstrap/css/estilo.css"
+		media="screen" />
+	<link rel="stylesheet" type="text/css"
+		href="#{facesContext.externalContext.requestContextPath}/Bootstrap/css/bootstrap.min.css"
+		media="screen" />
+	<link rel="stylesheet" type="text/css"
+		href="#{facesContext.externalContext.requestContextPath}/Bootstrap/css/bootstrap-theme.min.css"
+		media="screen" />
+</h:head>
+<h:body>
+	<h:form id="form">
+		<div>
+			<h2 style="text-align: center">Edição do Veículo</h2>
+			<div class="topnav">
+				<a href="telaPrincipal.xhtml?faces-redirect=true">Home</a> <a
+					href="cadastroCliente.xhtml?faces-redirect=true">Cliente</a> <a
+					href="cadatroVeiculo.xhtml?faces-redirect=true">Veiculo</a> <a
+					href="venda.xhtml?faces-redirect=true">Venda</a> <a
+					href="listaCliente.xhtml?faces-redirect=true">Lista de Clientes</a> <a
+					href="listaVeiculo.xhtml?faces-redirect=true">Lista de Veiculos</a>
+					
+			</div>
+		</div>
+		<hr />
+<div class="control-label col-sm-6">
+			<div>
+				<div class="col-md-6">
+
+					<div class="form-group">
+						<div>
+							<h:outputLabel for="marca">Marca :</h:outputLabel>
+							<div>
+								<h:inputText id="marca" size="30" value="#{editUser.marca}"
+									required="true">
+								</h:inputText>
+								<h:message for="marca" style="color:red" />
+							</div>
+						</div>
+						<div>
+							<h:outputLabel for="modelo"> Modelo :</h:outputLabel>
+							<div>
+								<h:inputText id="modelo" size="30" value="#{editUser.modelo}"
+									required="true">
+								</h:inputText>
+								<h:message for="modelo" style="color:red" />
+							</div>
+						</div>
+						<div>
+							<h:outputLabel for="cor">Cor :</h:outputLabel>
+							<div>
+								<h:inputText id="cor" value="#{editUser.cor}" required="true">
+								</h:inputText>
+								<h:message for="idDoTeuInput" style="color:red" />
+							</div>
+						</div>
+						<div>
+							<h:outputLabel for="placa">Placa :</h:outputLabel>
+							<div>
+								<h:inputText id="placa" value="#{editUser.placa}"
+									required="true">
+								</h:inputText>
+								<h:message for="placa" style="color:red" />
+							</div>
+						</div>
+						<div>
+							<h:outputLabel for="chassi">Chassi :</h:outputLabel>
+							<div>
+								<h:inputText id="chassi" size="30" value="#{editUser.chassi}"
+									required="true">
+								</h:inputText>
+								<h:message for="chassi" style="color:red" />
+							</div>
+						</div>
+						<div>
+							<h:outputLabel for="anoFabricacao">Ano de Fabricação :</h:outputLabel>
+							<div>
+								<h:inputText id="anoFabricacao"
+									value="#{editUser.anoFabricacao}" required="true">
+								</h:inputText>
+								<h:message for="ano" style="color:red" />
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-3">
+								<h:commandButton value="Salvar" action="#{Veiculobean.atualizar(editUser)}"
+									class="btn btn-primary" style="width: 80px;"></h:commandButton>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</h:form>
+</h:body>
+</html>
